@@ -1,4 +1,5 @@
 package by.epam.cdptr.less2;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -7,7 +8,10 @@ import java.io.IOException;
 public class FileToByte {
     public static void main(String[] args) throws IOException {
         Path file;
-        file = Paths.get("src", "data123.txt");
+
+        file = FileSystems.getDefault().getPath("src", "data123.txt");
+
+        //        file = Paths.get("src", "data123.txt");  // alternative method with using java.nio.file.Paths;
 
         byte[] fileArray;
         fileArray = Files.readAllBytes(file);
